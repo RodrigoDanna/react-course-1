@@ -1,0 +1,33 @@
+.Card{
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    background:#fff;
+    border:2px solid #000;
+    border-radius: 10px;
+    margin:0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    min-width: 300px;
+    transition: 0.3s;
+}
+
+.Card .Content{
+    padding:2rem 1rem;
+    flex:1;
+}
+
+.Card .Footer{
+    border-top:1px solid #444;
+    padding: .5rem 2rem;
+    background:#000;
+    color:white;
+    transition: 0.3s;
+}
+
+.Card:hover{
+    border:2px solid blue;
+}
+.Card:hover .Footer{
+    background:blue;
+}
