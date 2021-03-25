@@ -2,7 +2,7 @@ import React from 'react'
 
 import products from '../data/products';
 
-//Nome de parametro pode ser utilizado como quiser, utiliza-se props por semântica
+//Component with repeating item
 export default props => {
     function getProducts(){
         return products.map(product => {

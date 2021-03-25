@@ -1,9 +1,9 @@
 import React from 'react'
 import './../assets/css/Card.css';
 
-//Exemplo de um componente utilizando props com children de conteúdo
+//Component using props with children as content
 export default props =>
     <div className="Card">
         <div className="Content">{props.children}</div>
-        <div className="Footer">{props.title}</div>
+        <h2 className="Footer">{props.title}</h2>
     </div>
