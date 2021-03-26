@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import Display from './Display'
+import Buttons from './Buttons'
+import Input from './Input'
 
 export default class Counter extends Component {
 
@@ -23,27 +26,19 @@ export default class Counter extends Component {
         })
     }
 
+    changeInput = (value) => {
+        this.setState({
+            pace: value
+        })
+    }
+
     render(){
         return (
             <div>
                 <h2>Counter</h2>
-                <div>
-                    <label for="paceInput">Pace: </label>
-                    <input
-                        id="paceInput"
-                        type="number"
-                        style={{fontSize: '1rem', width: '60px', padding: '5px 0 5px 10px'}}
-                        value={this.state.pace}
-                        onChange={e => this.setState({pace: +e.target.value})}
-                    />
-                </div>
-
-                <h4>Value: {this.state.value}</h4>
-
-                <div>
-                    <button onClick={this.inc}>+</button>
-                    <button onClick={this.dec}>-</button>
-                </div>
+                <Input pace={this.state.pace} function={this.changeInput} />
+                <Display value={this.state.value}/>
+                <Buttons onInc={this.inc} onDec={this.dec}></Buttons>
             </div>
         )
     }

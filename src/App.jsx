@@ -15,38 +15,50 @@ import DirectSpread from './components/spread/direct/Parent.jsx';
 import IndirectSpread from './components/spread/indirect/Parent.jsx';
 import Input from './components/form/Input.jsx';
 import Counter from './components/counter/Counter.jsx';
+import Randomize from './components/randomize/Randomize.jsx';
 
-const pallete = ['#DC2742', '#83AA30', '#5E412F', '#FF85CB', '#5C2D50', '#02D0AC', '#D96459', '#BCCF02', '#AF1523', '#cE4ccF'];
+const pallete = [
+    '#DC2742',
+    '#83AA30',
+    '#5E412F',
+    '#FF85CB',
+    '#5C2D50',
+    '#02D0AC',
+    '#D96459',
+    '#BCCF02',
+    '#AF1523',
+    '#cE4ccF',
+    '#1E4ccF'
+];
 
-export default () =>
+const cards = [
+    {title:'#01 - Basic', component:<Basic />},
+    {title:'#02 - Children', component:<Children>
+            <ul>
+                <li>Item 1</li>
+                <li>Itezm 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+            </ul>
+        </Children>},
+    {title:'#03 - Props', component:<Props text="Teste 2" />},
+    {title:'#04 - Repeat', component:<Repeat />},
+    {title:'#05 - Conditional', component:<Conditional number={5} />},
+    {title:'#06 - Componentized Conditional', component:<ConditionalIf number={6} />},
+    {title:'#07 - Direct Spread', component:<DirectSpread surname="McClane"/>},
+    {title:'#08 - Indirect Spread', component:<IndirectSpread/>},
+    {title:'#09 - Input', component:<Input/>},
+    {title:'#10 - Counter', component:<Counter pace={10}/>},
+    {title:'#11 - Randomize Numbers', component:<Randomize/>}
+];
+
+export default () => (
     <div className="App">
-        <Card title="#01 - Basic" color={pallete[0]}><Basic /></Card>
-
-        <Card title="#02 - Children" color={pallete[1]}>
-            <Children>
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                    <li>Item 4</li>
-                    <li>Item 5</li>
-                </ul>
-            </Children>
-        </Card>
-
-        <Card title="#03 - Props" color={pallete[2]}><Props text="Teste 2" /></Card>
-
-        <Card title="#04 - Repeat" color={pallete[3]}><Repeat /></Card>
-
-        <Card title="#05 - Conditional" color={pallete[4]}><Conditional number={5} /></Card>
-
-        <Card title="#06 - Componentized Conditional" color={pallete[5]}><ConditionalIf number={6} /></Card>
-
-        <Card title="#07 - Direct Spread" color={pallete[6]}><DirectSpread surname="McClane"/></Card>
-
-        <Card title="#08 - Indirect Spread" color={pallete[7]}><IndirectSpread/></Card>
-
-        <Card title="#09 - Input" color={pallete[8]}><Input/></Card>
-
-        <Card title="#10 - Counter" color={pallete[9]}><Counter pace={10}/></Card>
+    {
+        cards.map((card, index) => (
+            <Card title={card.title} color={pallete[index]}>{card.component}</Card>
+        ))
+    }
     </div>
+)
